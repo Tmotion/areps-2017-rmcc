@@ -1,0 +1,553 @@
+// Colors
+$areps: #00985b;
+$yellow: #fff100;
+$blue: #4385f5;
+$blue-hover: #436EDC;
+$grey: #eeeee8;
+$darkgrey: #424242;
+$white: #FFF;
+$red: #e60012;
+$border-color: #9E9E9E;
+
+// Responsiveness
+$tablet: 769px !default
+$desktop: 980px !default
+$widescreen: 1180px !default
+
+$min-tablet: $tablet;
+$min-desktop: $desktop;
+$min-widescreen: $widescreen;
+
+$min-tablet: $tablet; // 769px
+$min-desktop: $desktop; // 980px
+$min-widescreen: $widescreen; // 1180px
+
+$max-tablet: $tablet - 1px; // 768px
+$max-desktop: $desktop - 1px; // 979px
+$max-widescreen: $widescreen - 1px; // 1179px
+
+/***************
+ * Override
+ ***************/
+body, button, input, select, textarea {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans JP",  sans-serif;
+}
+
+.section {
+  padding: 80px 20px;
+
+  &.no-padding-bottom {
+    padding-bottom: 0;
+  }
+
+  &.padding-top-30 {
+    padding-top: 30px;
+  }
+}
+
+.subtitle:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.container > .nav > .nav-right > .nav-item:last-child:not(.is-tab) {
+  padding-right: 10px;
+}
+
+.content a:not(.button):visited {
+  color: inherit;
+}
+
+.peek-a-bar {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans JP",  sans-serif;
+  color: $white;
+  z-index: 999;
+}
+
+.nav {
+  min-height: 70px;
+
+  .nav-item {
+    img {
+      max-height: 45px;
+    }
+  }
+
+  .nav-menu {
+
+    .nav-item {
+      padding: 20px;
+
+      &.blue {
+        background-color: #4385f5;
+        color: $white;
+        font-weight: 600;
+      }
+    }
+  }
+  .nav-toggle {
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: $max-desktop) and (min-width: $min-tablet) {
+  .nav-menu {
+    padding-right: 0;
+  }
+}
+
+.columns {
+
+  .column {
+
+    &.padding-20 {
+      padding: 20px;
+    }
+  }
+}
+
+/***************
+ * Global
+ ***************/
+.is-bold {
+  font-weight: 600;
+}
+
+.speech-ballon {
+  position: relative;
+  font-size: 16pt ;
+  border-bottom: 3px solid #363636;
+  margin: 10px 0 60px !important;
+  padding: 10px 0 20px;
+
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    height: 0;
+    width: 0;
+  }
+
+  &:after {
+    left: calc(50% - 24px);
+    border: 20px solid transparent;
+    border-top: 20px solid #fff;
+    margin-left: 4px;
+  }
+
+  &:before {
+    left: calc(50% - 24px);
+    border: 24px solid transparent;
+    border-top: 24px solid #363636;
+  }
+
+  &.red {
+    margin: 0 !important;
+    background-color: $red;
+    border-bottom: 3px solid $red;
+
+    &:after {
+      border-top: 20px solid $red;
+    }
+
+    &:before {
+      border-top: 24px solid $red;
+    }
+  }
+}
+
+.bg-grey {
+  background-color: $grey;
+}
+
+.bg-darkgrey {
+  background-color: $darkgrey;
+}
+
+.bg-green {
+  background-color: $areps;
+
+  .speech-ballon {
+    border-bottom: 3px solid $white;
+
+    &:after {
+      border-top: 20px solid $areps;
+    }
+
+    &:before {
+      border-top: 24px solid $white;
+    }
+  }
+
+  .title,
+  .subtitle {
+    color: $white;
+  }
+}
+
+.text-areps {
+  color: $areps !important;
+}
+
+.text-yellow {
+  color: $yellow !important;
+}
+
+/***************
+ * Vue.js
+ ***************/
+[v-cloak] {
+  display:none
+}
+
+/***************
+ * Footer
+ ***************/
+footer {
+  .content {
+    font-size: 0.8em;
+
+    a {
+      border-bottom: none !important;
+    }
+  }
+
+  .copyright {
+    text-align: center;
+  }
+}
+
+/***************
+ * Box
+ ***************/
+@media screen and (min-width: $min-tablet) {
+  .box {
+    &.no-border {
+
+      .content {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.box {
+  &.no-border {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 10px;
+
+    .content {
+      padding-top: 10px;
+      font-weight: 600;
+    }
+  }
+}
+
+/***************
+ * Jumbotoron
+ ***************/
+@media screen and (min-width: $min-tablet) {
+  .jumbotron {
+
+    .content {
+      padding-top: 50px !important;
+      padding-bottom: 135px !important;
+
+      .title {
+        font-size: 70px;
+      }
+
+      .subtitle {
+        font-size: 40px;
+      }
+    }
+
+    .button {
+      padding-top: 25px !important;
+      padding-bottom: 25px !important;
+      padding-left: 60px !important;
+      padding-right: 60px !important;
+      font-size: 20px;
+      height: 60px;
+    }
+  }
+}
+
+.jumbotron {
+  background-image: url('../img/main.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  text-align: center;
+
+  .content {
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+    .title,
+    .subtitle {
+      font-weight: 600;
+
+      &.no-margin {
+        margin-bottom: 10px !important;
+      }
+    }
+  }
+
+  .button {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+}
+
+/***************
+ * Button
+ ***************/
+.button {
+  border-radius: 5px;
+}
+
+.button.is-blue:hover, .button.is-blue:focus, .button.is-blue.is-active {
+  background-color: $blue-hover;
+  color: $white;
+  border-color: transparent;
+}
+
+.button.is-blue {
+  background-color: $blue;
+  color: $white;
+  border: none;
+}
+
+@media screen and (min-width: $min-tablet) {
+  .button.is-fullwidth {
+    font-size: 35px;
+    height: 90px !important;
+  }
+}
+
+.button.is-fullwidth {
+  height: 50px;
+}
+
+/***************
+ * このようなお悩みはありませんか
+ ***************/
+.trouble {
+  background-color: $red;
+  padding-top: 20px;
+
+  p {
+    color: $white !important;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  img {
+    height:120px;
+    width: auto;
+
+    &.left {
+      margin-left: 50px;
+    }
+
+    &.right {
+      margin-right: 50px;
+    }
+  }
+}
+
+.flex-container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  align-items: center;
+
+  .flex-1 {
+    flex: 1;
+    -ms-flex: 1;
+  }
+}
+
+/***************
+ * 特徴
+ ***************/
+@media screen and (min-width: $min-tablet) {
+  .characteristic {
+
+    .title {
+      font-size: 40px;
+    }
+
+    .subtitle.is-4 {
+      font-size: 40px;
+    }
+
+    .subtitle.is-5 {
+      font-size: 30px;
+    }
+
+    .subtitle.is-6 {
+      font-size: 20px;
+    }
+  }
+}
+
+.characteristic {
+  .title {
+    font-weight: 600;
+
+    &.no-margin {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+/***************
+ * よくある質問
+ ***************/
+@media screen and (min-width: $min-tablet) {
+  .question {
+
+    .title {
+      font-size: 40px;
+    }
+
+    .message {
+
+      .message-header {
+        padding: 12px 20px;
+        font-size: 20px;
+      }
+
+      .message-body {
+        padding: 15px 35px;
+      }
+    }
+  }
+}
+
+.question {
+  .title {
+    font-weight: 600;
+  }
+
+  .message {
+    border-radius: 0;
+
+    .message-header {
+      background-color: $areps;
+      border-radius: 0;
+    }
+
+    .message-body {
+      border: none;
+      background-color: $grey;
+      border-radius: 0;
+    }
+  }
+}
+
+/***************
+ * お問い合わせ
+ ***************/
+@media screen and (min-width: $min-tablet) {
+  .contact {
+
+    .title {
+      font-size: 40px;
+    }
+
+    .contact-group {
+
+      .description {
+        margin-left: 20px;
+      }
+
+      .help {
+        margin-left: 20px;
+      }
+    }
+
+    .action {
+      margin-top: 30px;
+
+      .button {
+        padding-top: 20px !important;
+        padding-bottom: 25px !important;
+        padding-left: 120px !important;
+        padding-right: 120px !important;
+        font-size: 20px;
+        height: 60px !important;
+      }
+    }
+  }
+}
+
+.contact {
+  .title {
+    font-weight: 600;
+    color: $white;
+  }
+
+  address {
+    color: $white;
+  }
+
+  form {
+    padding: 20px 0;
+
+    .contact-group {
+      border-bottom: solid 1px $border-color;
+      padding: 15px;
+
+      &:first-child {
+        border-top: solid 1px $border-color;
+      }
+
+      .control-label {
+        text-align: left;
+
+        label {
+          color: $white;
+        }
+      }
+
+      .description {
+        color: #9E9E9E;
+        text-align: left;
+      }
+
+      .help {
+        text-align: left;
+      }
+    }
+
+    .action {
+      margin-top: 30px;
+
+      .button {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 60px;
+        padding-right: 60px;
+        font-weight: 600;
+        height: 50px;
+      }
+    }
+  }
+
+}

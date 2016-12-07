@@ -1,0 +1,25 @@
+suPHP_ConfigPath /home/kubos/kickside.biz/xserver_php/
+AddHandler fcgid-script .php .phps
+FCGIWrapper "/home/kubos/kickside.biz/xserver_php/php-cgi" .php
+FCGIWrapper "/home/kubos/kickside.biz/xserver_php/php-cgi" .phps
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    RewriteEngine on
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+</IfModule>

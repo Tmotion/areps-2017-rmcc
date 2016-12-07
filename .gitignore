@@ -1,0 +1,8 @@
+/vendor
+/node_modules
+Homestead.yaml
+Homestead.
+.idea/workspace.xml
+.env
+.DS_Store
+Thumbs.db
